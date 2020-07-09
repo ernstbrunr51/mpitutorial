@@ -23,11 +23,11 @@ int main(int argc, char **argv) {
   MPI_Comm_group(MPI_COMM_WORLD, &world_group);
 
   int n = 7;
-  const int ranks[7] = {1, 2, 3, 5, 7, 11, 13};
+  const int ranks[n] = {1, 2, 3, 5, 7, 11, 13};
 
   // Construct a group containing all of the prime ranks in world_group
   MPI_Group prime_group;
-  MPI_Group_incl(world_group, 7, ranks, &prime_group);
+  MPI_Group_incl(world_group, n, ranks, &prime_group);
 
   // Create a new communicator based on the group
   MPI_Comm prime_comm;
